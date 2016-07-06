@@ -1,0 +1,34 @@
+{
+    "name": "tnqsoft/common-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "description": "Commons functions, service, repository for Symfony 3",
+    "keywords": ["common", "symfony 3"],
+    "authors": [
+        {
+            "name": "Nguyen Nhu Tuan",
+            "homepage": "https://github.com/tnqsoft/common-bundle",
+            "email": "tuanquynh0508@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.0.*",
+        "doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.2",
+        "symfony/swiftmailer-bundle": "^2.3",
+        "symfony/assetic-bundle": "^2.8"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+	"autoload": {
+        "psr-4": {
+            "TNQSoft\\CommonBundle\\": ""
+        }
+    }
+}
