@@ -1,4 +1,23 @@
+parameters:
+    tnqsoft_common.repository.base.class: TNQSoft\CommonBundle\Repository\BaseRepository
+
+    tnqsoft_common.form.extension.image_type.class: TNQSoft\CommonBundle\Form\Extension\ImageTypeExtension
+    tnqsoft_common.form.extension.core_file_type.class: Symfony\Component\Form\Extension\Core\Type\FileType
+
+    tnqsoft_common.twig.extension.common.class: TNQSoft\CommonBundle\Twig\Extension\CommonExtension
+
 services:
-#    tnq_soft_common.example:
-#        class: TNQSoft\CommonBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    tnqsoft_common.repository.base:
+        class: %tnqsoft_common.repository.base.class%
+        arguments: ["@doctrine.orm.default_entity_manager", %tnqsoft_admin.bundle.admin%]
+
+    tnqsoft_common.form.extension.image_type:
+        class: %tnqsoft_common.form.extension.image_type.class%
+        tags:
+            - { name: form.type_extension, extended_type: %tnqsoft_common.form.extension.core_file_type.class% }
+
+    tnqsoft_common.twig.extension.common:
+        class: %tnqsoft_common.twig.extension.common.class%
+        public: false
+        tags:
+            - { name: twig.extension }
