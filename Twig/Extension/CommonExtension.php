@@ -16,9 +16,10 @@ class CommonExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFilter('strpad', array($this, 'strpadFilter')),
+            new \Twig_SimpleFilter('jsonDecode', array($this, 'jsonDecodeFilter')),
             new \Twig_SimpleFilter('showDepth', array($this, 'showDepthFilter')),
             new \Twig_SimpleFilter('priceDisplay', array($this, 'priceDisplayFilter')),
-            new \Twig_SimpleFilter('jsonDecode', array($this, 'jsonDecodeFilter')),
+            new \Twig_SimpleFilter('dateDisplay', array($this, 'dateDisplayFilter')),
         );
     }
 
@@ -99,11 +100,29 @@ class CommonExtension extends \Twig_Extension
     }
 
     /**
+     * @param string $price
+     * @return string
+     */
+    public function dateDisplayFilter($date)
+    {
+        $dateObject = $date;
+        if (($date instanceof \DateTime) === false) {
+            $dateObject = new \DateTime($date);
+        }
+
+        if($dateObject->format('Ymd') === date('Ymd')) {
+            return 'Hôm nay '.$dateObject->format('H:i');
+        }
+
+        return $dateObject->format('Y/m/d H:i');
+    }
+
+    /**
      * @return string
      */
     public function getName()
     {
-        return 'app_extension';
+        return 'common_extension';
     }
 
     ////////////////////////////////////////////////////////////////////////////

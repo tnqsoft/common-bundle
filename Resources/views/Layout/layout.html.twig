@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="{% if block('keywords') %}{% block keywords %}{% endblock %}{% else %}Symfony 3, Common, Functions, Twig, Form, Extension{% endif %}">
+    <meta name="description" content="{% if block('description') %}{% block description %}{% endblock %}{% else %}Common Layout{% endif %}"/>
+    <meta name="author" content="Nguyen Nhu Tuan"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>{% if block('title') %}{% block title %}{% endblock %} - {% endif %}Symfony 3</title>
+    {% include 'TNQSoftCommonBundle:Layout:css.html.twig' %}
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+{% block columns %}{% endblock %}
+{% include 'TNQSoftCommonBundle:Layout:js.html.twig' %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

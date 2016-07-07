@@ -1,0 +1,12 @@
+{% extends 'TNQSoftCommonBundle:Layout:one-column.html.twig' %}
+{##############################################################################}
+{% block body %}
+    <div class="row">
+        <div class="error-box">
+            <p class="text-center"><img src="{{ asset('bundles/tnqsoftcommon/img/exception.jpg') }}"/></p>
+            <h1 class="text-center text-danger">Oops! ({{ exception.statusCode }} Error)</h1>
+            <p class="text-center"><em>{{ exception.message|trans }}.</em></p>
+            <p class="text-center">Bạn có thể quay lại <a href="javascript:history.go(-1);">trang trước</a>, hoặc trở về <a href="{{ path('homepage') }}">trang chủ</a></p>
+        </div>
+    </div>
+{% endblock %}

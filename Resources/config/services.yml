@@ -6,6 +6,8 @@ parameters:
 
     tnqsoft_common.twig.extension.common.class: TNQSoft\CommonBundle\Twig\Extension\CommonExtension
 
+    tnqsoft_common.validator.base.class: TNQSoft\CommonBundle\Validator\BaseValidator
+
 services:
     tnqsoft_common.repository.base:
         class: %tnqsoft_common.repository.base.class%
@@ -21,3 +23,9 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+    tnqsoft_common.validator.base:
+        class: %tnqsoft_common.validator.base.class%
+        abstract: true
+        calls:
+            - [setValidator, ["@validator"]]
