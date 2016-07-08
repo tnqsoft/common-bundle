@@ -1,5 +1,15 @@
 {% extends 'TNQSoftCommonBundle:Layout:one-column.html.twig' %}
 {##############################################################################}
+{% block stylesheets %}
+    {% stylesheets
+    '@TNQSoftCommonBundle/Resources/public/css/exception.css'
+    filter='cssrewrite'
+    output='css/compiled/common-exception.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen" />
+    {% endstylesheets %}
+{% endblock %}
+{##############################################################################}
 {% block body %}
     <div class="row">
         <div class="error-box">

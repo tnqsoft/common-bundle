@@ -1,0 +1,15 @@
+body {
+    background: none transparent;
+}
+
+.error-box {
+    padding: 40px;
+    border: 1px solid #eee;
+    width: 700px;
+    max-width: 80%;
+    margin: 30px auto;
+    word-wrap: break-word;
+}
+.error-box h1 {
+    font-size: 3.5em;
+}
