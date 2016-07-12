@@ -106,6 +106,16 @@ class PaginatorService extends Paginator
     }
 
     /**
+     * Get Current Page
+     *
+     * @return integer
+     */
+    public function getCurrentPage()
+    {
+        return $this->page;
+    }
+
+    /**
      * Render link pagination
      *
      * @param array $listParam
