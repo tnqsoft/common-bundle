@@ -3,14 +3,14 @@
 namespace TNQSoft\CommonBundle\Validator;
 
 use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator;
+use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Constraints\Collection;
 
 abstract class BaseValidator
 {
     /**
-     * @var Validator
+     * @var RecursiveValidator
      */
     protected $validator;
 
@@ -50,9 +50,9 @@ abstract class BaseValidator
     /**
     * Set Validator
     *
-    * @param Validator $validator
+    * @param RecursiveValidator $validator
     */
-    public function setValidator(Validator $validator)
+    public function setValidator(RecursiveValidator $validator)
     {
         $this->validator = $validator;
     }
@@ -99,7 +99,7 @@ abstract class BaseValidator
         $constraint = new Collection($constraintCollection);
 
         //Validate
-        $validatorResult = $this->validator->validateValue($input, $constraint);
+        $validatorResult = $this->validator->validate($input, $constraint);
 
         //Parse error
         $this->parseError($validatorResult);
